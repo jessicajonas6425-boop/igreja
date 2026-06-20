@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-cinzel: "Cinzel", serif;
+
+  --color-gold: #D4AF37;
+  --color-gold-dark: #B8860B;
+  --color-sophisticated-dark: #05070A;
+  --color-sophisticated-card: #0A0C14;
+}
+
+/* Custom visual utility helpers */
+.animate-spin-slow {
+  animation: spin 16s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+

@@ -1,0 +1,6 @@
+{
+  "name": "Igreja MCI Vila Velha",
+  "description": "Site oficial, área de membros e painel administrativo para a Igreja MCI Vila Velha.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

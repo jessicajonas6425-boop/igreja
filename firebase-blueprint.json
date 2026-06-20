@@ -1,0 +1,84 @@
+{
+  "entities": {
+    "Config": {
+      "title": "Config",
+      "description": "Configurações gerais da igreja",
+      "type": "object",
+      "properties": {
+        "address": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "instagram": { "type": "string" },
+        "facebook": { "type": "string" },
+        "youtube": { "type": "string" },
+        "logoUrl": { "type": "string" },
+        "introCeuUrl": { "type": "string" }
+      },
+      "required": ["address", "email", "phone", "whatsapp"]
+    },
+    "Evento": {
+      "title": "Evento",
+      "description": "Eventos e cultos da igreja",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "location": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "category": { "type": "string" }
+      },
+      "required": ["id", "title", "date", "time", "location"]
+    },
+    "Versiculo": {
+      "title": "Versiculo",
+      "description": "Versículo diário listado na home",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "text": { "type": "string" },
+        "reference": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "text", "reference"]
+    },
+    "Membro": {
+      "title": "Membro",
+      "description": "Dados do membro da igreja",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "birthDate": { "type": "string" },
+        "phone": { "type": "string" },
+        "baptismDate": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "photoUrl": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["uid", "fullName", "email"]
+    }
+  },
+  "firestore": {
+    "/config/main": {
+      "schema": "Config",
+      "description": "Configuração única principal"
+    },
+    "/eventos/{eventId}": {
+      "schema": "Evento",
+      "description": "Documentos de cultos e eventos"
+    },
+    "/versiculos_diarios/{verseId}": {
+      "schema": "Versiculo",
+      "description": "Versículos bíblicos de inspiração"
+    },
+    "/membros/{membroId}": {
+      "schema": "Membro",
+      "description": "Perfis dos membros cadastrados"
+    }
+  }
+}
