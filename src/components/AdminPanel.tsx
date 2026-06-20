@@ -852,13 +852,14 @@ export default function AdminPanel({ config }: AdminPanelProps) {
                           <th className="p-3 text-left">Aniversário</th>
                           <th className="p-3 text-left">Célula</th>
                           <th className="p-3 text-left">Atua em</th>
+                          <th className="p-3 text-left">Senha / PIN</th>
                           <th className="p-3 text-right">Ação</th>
                         </tr>
                       </thead>
                       <tbody>
                         {members.length === 0 ? (
                           <tr>
-                            <td colSpan={7} className="p-6 text-center text-zinc-500">
+                            <td colSpan={8} className="p-6 text-center text-zinc-500">
                               Nenhum membro cadastrado até o momento.
                             </td>
                           </tr>
@@ -875,6 +876,7 @@ export default function AdminPanel({ config }: AdminPanelProps) {
                               </td>
                               <td className="p-3 text-gold font-bold uppercase tracking-wider text-[10px] font-display">{mem.cellGroup || "Visitante"}</td>
                               <td className="p-3 text-white font-medium uppercase tracking-wider text-[10px] font-display">{mem.ministry || "Membro"}</td>
+                              <td className="p-3 font-mono text-zinc-300 font-bold bg-white/5 px-2 py-1 rounded-sm">{mem.pin || `Ano: ${mem.birthYear}`}</td>
                               <td className="p-3 text-right">
                                 <button
                                   onClick={() => handleDeleteMember(mem.id)}

@@ -11,6 +11,7 @@ export interface Member {
   cellGroup?: string;
   ministry?: string;
   photoUrl?: string;
+  pin?: string;
 }
 
 export interface Event {

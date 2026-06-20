@@ -40,6 +40,8 @@ export default function MemberArea() {
   const [birthDay, setBirthDay] = useState("");
   const [birthMonth, setBirthMonth] = useState("");
   const [age, setAge] = useState("");
+  const [pin, setPin] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
 
   // Account editing state
   const [isEditing, setIsEditing] = useState(false);
@@ -107,8 +109,14 @@ export default function MemberArea() {
     setErrorMsg("");
     setSuccessMsg("");
     
-    if (!fullName.trim() || !birthYear.trim() || !birthDay.trim() || !birthMonth.trim() || !age.trim()) {
-      setErrorMsg("Por favor, preencha todos os campos obrigatórios.");
+    if (!fullName.trim() || !birthYear.trim() || !birthDay.trim() || !birthMonth.trim() || !age.trim() || !pin.trim()) {
+      setErrorMsg("Por favor, preencha todos os campos obrigatórios, incluindo o PIN de 6 dígitos.");
+      return;
+    }
+
+    const pinVal = pin.trim();
+    if (pinVal.length !== 6 || isNaN(Number(pinVal))) {
+      setErrorMsg("O campo de lembrete com a senha deve ter exatamente 6 dígitos numéricos.");
       return;
     }
 
@@ -135,7 +143,7 @@ export default function MemberArea() {
     }
 
     const email = generateMockEmail(fullName);
-    const password = birthYear.trim();
+    const password = pinVal;
 
     try {
       setLoading(true);
@@ -158,7 +166,8 @@ export default function MemberArea() {
         phone: "",
         cellGroup: "Visitante",
         ministry: "Membro",
-        photoUrl: ""
+        photoUrl: "",
+        pin: pinVal
       };
 
       await setDoc(doc(db, "membros", user.uid), newMember);
@@ -171,6 +180,7 @@ export default function MemberArea() {
       setBirthDay("");
       setBirthMonth("");
       setAge("");
+      setPin("");
     } catch (err: any) {
       console.error(err);
       if (err.code === "auth/email-already-in-use") {
@@ -188,15 +198,15 @@ export default function MemberArea() {
     setErrorMsg("");
     setSuccessMsg("");
 
-    if (!fullName.trim() || !birthYear.trim()) {
-      setErrorMsg("Por favor, preencha o Nome Completo e o Ano de Nascimento.");
+    if (!fullName.trim() || !loginPassword.trim()) {
+      setErrorMsg("Por favor, preencha o Nome do Usuário e a Senha/PIN.");
       return;
     }
 
     // Checking if trying to log in as pastor/admin
     const isPastorLogin = fullName.trim().toLowerCase() === "pastor@x.com";
     const email = isPastorLogin ? "pastor@x.com" : generateMockEmail(fullName);
-    const password = birthYear.trim();
+    const password = loginPassword.trim();
 
     try {
       setLoading(true);
@@ -223,6 +233,7 @@ export default function MemberArea() {
       }
 
       setSuccessMsg("Bem-vindo de volta à família MCI!");
+      setLoginPassword("");
     } catch (err: any) {
       console.error(err);
       setErrorMsg("Dados de login incorretos ou membro não encontrado.");
@@ -355,7 +366,7 @@ export default function MemberArea() {
 
                   <div>
                     <label className="text-[9px] font-display font-bold text-zinc-500 uppercase tracking-widest block mb-1.5">
-                      Ano de Nascimento (Sua Senha) ou Senha Pastor
+                      Senha / PIN de 6 Dígitos ou Senha Pastor
                     </label>
                     <div className="relative">
                       <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-500">
@@ -363,9 +374,9 @@ export default function MemberArea() {
                       </span>
                       <input
                         type="password"
-                        placeholder="Ex: 1995"
-                        value={birthYear}
-                        onChange={(e) => setBirthYear(e.target.value)}
+                        placeholder="Ex: 123456"
+                        value={loginPassword}
+                        onChange={(e) => setLoginPassword(e.target.value)}
                         className="w-full bg-black/40 border border-white/10 focus:border-gold/50 rounded-sm py-3.5 pl-11 pr-4 text-white text-xs outline-none transition duration-200"
                       />
                     </div>
@@ -490,6 +501,32 @@ export default function MemberArea() {
                         />
                       </div>
                     </div>
+                  </div>
+
+                  <div>
+                    <label className="text-[9px] font-display font-bold text-zinc-500 uppercase tracking-widest block mb-1.5">
+                      Senha / PIN de 6 Dígitos
+                    </label>
+                    <div className="relative">
+                      <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-zinc-500">
+                        <Lock className="w-4 h-4" />
+                      </span>
+                      <input
+                        type="password"
+                        maxLength={6}
+                        placeholder="Ex: 123456"
+                        value={pin}
+                        onChange={(e) => {
+                          const val = e.target.value.replace(/\D/g, ""); // Apenas números
+                          setPin(val);
+                        }}
+                        className="w-full bg-black/40 border border-white/10 focus:border-gold/50 rounded-sm py-3 pl-11 pr-4 text-white text-xs outline-none transition duration-200 font-sans"
+                        required
+                      />
+                    </div>
+                    <span className="text-[9px] text-gold font-mono mt-1 block leading-relaxed uppercase tracking-wide">
+                      Importante: Lembre-se de sua senha exata de 6 dígitos para usar nos próximos logins!
+                    </span>
                   </div>
 
                   <button
