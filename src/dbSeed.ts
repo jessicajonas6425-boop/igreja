@@ -1,5 +1,5 @@
 import { doc, getDoc, setDoc, collection, getDocs } from "firebase/firestore";
-import { db } from "./firebase";
+import { db, handleFirestoreError, OperationType } from "./firebase";
 import { ChurchConfig, Event, DailyVerse } from "./types";
 
 const defaultConfig: ChurchConfig = {
@@ -118,5 +118,6 @@ export async function seedDatabase() {
     }
   } catch (err) {
     console.error("Error seeding database: ", err);
+    handleFirestoreError(err, OperationType.WRITE, "seed_database");
   }
 }

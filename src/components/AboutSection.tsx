@@ -54,14 +54,14 @@ export default function AboutSection() {
           {/* Collage mockup / Rich Graphic Representation */}
           <div className="lg:col-span-5 relative order-last lg:order-first">
             <div className="absolute -inset-1 rounded-sm bg-gradient-to-tr from-gold to-gold-dark opacity-10 blur-xl" />
-            <div className="relative rounded-sm overflow-hidden shadow-2xl border border-white/10 bg-[#0A0C14] p-3">
+            <div className="relative rounded-sm overflow-hidden shadow-2xl border border-gold/15 bg-[#0A2424]/80 backdrop-blur-sm p-3">
               <img
                 src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?auto=format&fit=crop&w=800&q=80"
                 alt="Comunhão e Celebração"
                 className="rounded-sm w-full object-cover h-64 sm:h-80 shadow-inner filter brightness-90 contrast-105"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-x-3 bottom-3 p-5 bg-gradient-to-t from-[#05070A] via-[#05070A]/90 to-transparent rounded-b-sm text-left">
+              <div className="absolute inset-x-3 bottom-3 p-5 bg-gradient-to-t from-[#051414] via-[#051414]/90 to-transparent rounded-b-sm text-left">
                 <span className="text-[10px] font-display text-gold uppercase tracking-[0.2em] font-bold block">
                   Visão Pastoral
                 </span>
@@ -72,7 +72,7 @@ export default function AboutSection() {
             </div>
 
             {/* Float accent badge */}
-            <div className="absolute -top-4 -right-4 bg-[#0A0C14] border border-white/15 p-4 rounded-sm shadow-2xl flex items-center gap-2.5 transform rotate-3 hover:translate-y-0.5 transition duration-300">
+            <div className="absolute -top-4 -right-4 bg-[#0A2424]/90 backdrop-blur-sm border border-gold/20 p-4 rounded-sm shadow-2xl flex items-center gap-2.5 transform rotate-3 hover:translate-y-0.5 transition duration-300">
               <span className="text-xl">🔥</span>
               <div className="text-left">
                 <span className="text-white font-bold text-xs uppercase tracking-wider font-display block">Avivamento Real</span>
@@ -97,13 +97,13 @@ export default function AboutSection() {
 
             {/* Mission/Vision Box */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-              <div className="bg-[#0A0C14] border border-white/10 p-5 rounded-sm shadow-xl">
+              <div className="bg-[#0A2424]/80 backdrop-blur-sm border border-gold/15 p-5 rounded-sm shadow-xl">
                 <span className="text-gold text-xs font-bold font-display tracking-[0.15em] uppercase block mb-1.5">Missão</span>
                 <p className="text-xs text-zinc-400 leading-relaxed">
                   Anunciar as Boas Novas de Cristo, promover discipulado prático, amar os necessitados e edificar famílias sadias em santidade.
                 </p>
               </div>
-              <div className="bg-[#0A0C14] border border-white/10 p-5 rounded-sm shadow-xl">
+              <div className="bg-[#0A2424]/80 backdrop-blur-sm border border-gold/15 p-5 rounded-sm shadow-xl">
                 <span className="text-white/90 text-xs font-bold font-display tracking-[0.15em] uppercase block mb-1.5">Visão</span>
                 <p className="text-xs text-zinc-400 leading-relaxed">
                   Ser uma igreja de impacto, cheia do Espírito Santo, relevante na Grande Vitória e reconhecida pela excelência no amor e cuidado integral das pessoas.
@@ -125,7 +125,7 @@ export default function AboutSection() {
               <motion.div
                 key={i}
                 whileHover={{ y: -4 }}
-                className="p-6 rounded-sm bg-[#0A0C14] border border-white/10 hover:border-gold/30 transition duration-300 text-left flex flex-col space-y-4 shadow-xl"
+                className="p-6 rounded-sm bg-[#0A2424]/80 backdrop-blur-sm border border-gold/15 hover:border-gold/35 transition duration-300 text-left flex flex-col space-y-4 shadow-xl"
               >
                 <div className="p-2.5 self-start rounded-sm bg-white/5 border border-white/10 text-gold shadow-sm">
                   {v.icon}

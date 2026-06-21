@@ -6,10 +6,31 @@
   --font-display: "Space Grotesk", sans-serif;
   --font-cinzel: "Cinzel", serif;
 
-  --color-gold: #D4AF37;
-  --color-gold-dark: #B8860B;
-  --color-sophisticated-dark: #05070A;
-  --color-sophisticated-card: #0A0C14;
+  --color-gold: #00E5C8;
+  --color-gold-dark: #00A693;
+  --color-sophisticated-dark: #051414;
+  --color-sophisticated-card: #0A2424;
+}
+
+body {
+  background-color: #051414;
+  background-image: radial-gradient(circle at 50% 0%, #0D3333 0%, #051414 100%);
+  color: #E0F8F8;
+}
+
+/* Custom scrollbars matching the new design details */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #051414;
+}
+::-webkit-scrollbar-thumb {
+  background: #00E5C825;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00E5C860;
 }
 
 /* Custom visual utility helpers */

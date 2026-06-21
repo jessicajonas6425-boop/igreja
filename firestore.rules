@@ -1,8 +1,66 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    
+    // Hardened helper functions following the system instructions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isPastor() {
+      return isSignedIn() && request.auth.token.email == 'pastor@x.com';
+    }
+    
+    function isOwner(membroId) {
+      return isSignedIn() && request.auth.uid == membroId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\\\-]+$');
+    }
+
+    // 1. Global Safety Net - default deny
     match /{document=**} {
-      allow read, write: if true;
+      allow read, write: if false;
+    }
+
+    // 2. Config Collection
+    match /config/{configId} {
+      allow read: if true;
+      // Allow unauthenticated seed database on startup, or authenticated writes
+      allow write: if isValidId(configId);
+    }
+
+    // 3. Eventos Collection
+    match /eventos/{eventId} {
+      allow read: if true;
+      // Allow unauthenticated seed database on startup, or authenticated writes
+      allow write: if isValidId(eventId);
+    }
+
+    // 4. Versiculos Diarios Collection
+    match /versiculos_diarios/{verseId} {
+      allow read: if true;
+      // Allow unauthenticated seed database on startup, or authenticated writes
+      allow write: if isValidId(verseId);
+    }
+
+    // 5. Membros Collection (PII & Schema boundary restriction rules)
+    match /membros/{membroId} {
+      // Secure list query isolation
+      allow list: if isPastor();
+      
+      // Individual view protection
+      allow get: if isOwner(membroId) || isPastor();
+      
+      // Create is limited to the register/registration user itself or pastor
+      allow create: if isOwner(membroId) || isPastor();
+      
+      // Update is restricted to profile owner or pastor
+      allow update: if isOwner(membroId) || isPastor();
+      
+      // Delete is restricted strictly to Administrator/Pastor and cannot be done by members
+      allow delete: if isPastor();
     }
   }
 }

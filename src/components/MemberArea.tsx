@@ -315,7 +315,7 @@ export default function MemberArea() {
             </div>
 
             {/* Form Box */}
-            <div className="bg-[#0A0C14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
+            <div className="bg-[#0A2424]/80 backdrop-blur-sm border border-gold/15 rounded-sm p-6 sm:p-10 shadow-2xl relative">
               
               <AnimatePresence mode="wait">
                 {errorMsg && (
@@ -593,7 +593,7 @@ export default function MemberArea() {
               <div className="flex flex-wrap gap-2.5">
                 <button
                   onClick={() => setIsEditing(!isEditing)}
-                  className="px-4 py-2.5 bg-[#0A0C14] hover:bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-wider text-white rounded-sm transition-all flex items-center gap-1.5 cursor-pointer font-display"
+                  className="px-4 py-2.5 bg-[#0A2424]/90 hover:bg-gold/10 border border-gold/15 text-[10px] font-bold uppercase tracking-wider text-white rounded-sm transition-all flex items-center gap-1.5 cursor-pointer font-display"
                 >
                   <Edit3 className="w-3.5 h-3.5 text-gold" />
                   {isEditing ? "Cancelar Edição" : "Editar meus dados"}
@@ -614,7 +614,7 @@ export default function MemberArea() {
               {/* Left Column: Personal info summary & editors */}
               <div className="lg:col-span-4 space-y-6">
                 
-                <div className="bg-[#0A0C14] border border-white/10 rounded-sm p-6 shadow-xl space-y-5">
+                <div className="bg-[#0A2424]/85 backdrop-blur-sm border border-gold/15 rounded-sm p-6 shadow-xl space-y-5">
                   <h3 className="text-[10px] font-bold font-display text-white uppercase tracking-widest border-b border-white/5 pb-2.5 flex items-center gap-1.5">
                     <User className="w-4 h-4 text-gold" /> Seus Dados Cadastrais
                   </h3>
@@ -721,7 +721,7 @@ export default function MemberArea() {
               <div className="lg:col-span-8 space-y-6">
                 
                 {/* Real-time Scripture Banner */}
-                <div className="bg-[#0A0C14] border border-white/10 p-6 rounded-sm relative overflow-hidden shadow-xl">
+                <div className="bg-[#0A2424]/85 backdrop-blur-sm border border-gold/15 p-6 rounded-sm relative overflow-hidden shadow-xl">
                   <div className="absolute right-0 bottom-0 pr-6 pb-2 select-none opacity-5 pointer-events-none">
                     <span className="text-9xl font-serif">“</span>
                   </div>
@@ -741,7 +741,7 @@ export default function MemberArea() {
                 </div>
 
                 {/* Mural de Avisos da Igreja */}
-                <div className="bg-[#0A0C14] border border-white/10 rounded-sm p-6 shadow-xl space-y-5">
+                <div className="bg-[#0A2424]/85 backdrop-blur-sm border border-gold/15 rounded-sm p-6 shadow-xl space-y-5">
                   <h3 className="text-[10px] font-bold font-display text-white uppercase tracking-widest border-b border-white/5 pb-2.5 flex items-center gap-1.5">
                     <MessageSquare className="w-4 h-4 text-gold" /> Mural de Avisos & Agenda Interna
                   </h3>

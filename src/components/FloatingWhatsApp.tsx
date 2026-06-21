@@ -21,7 +21,7 @@ export default function FloatingWhatsApp({ config }: FloatingWhatsAppProps) {
     >
       <MessageCircle className="w-6 h-6 fill-white text-[#25D366]" />
       {/* Floating text badge */}
-      <span className="absolute right-14 bg-[#0A0C14] text-white border border-white/10 text-[9px] uppercase font-display tracking-widest font-bold py-1.5 px-3 rounded-sm shadow-xl opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none whitespace-nowrap">
+      <span className="absolute right-14 bg-[#0A2424]/95 backdrop-blur-md text-[#E0F8F8] border border-gold/25 text-[9px] uppercase font-display tracking-widest font-bold py-1.5 px-3 rounded-sm shadow-xl opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none whitespace-nowrap">
         Suporte Whatsapp
       </span>
     </button>

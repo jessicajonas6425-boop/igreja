@@ -97,7 +97,7 @@ export default function GeracaoSanta({ config, onNavigate }: GeracaoSantaProps) 
               {config.gsText || "O Geração Santa une música contemporânea, comunhão real e paixão pelo Espírito Santo. Nossos cultos aos sábados são repletos de adoração compromissada, mensagens fortes e um ambiente excelente para fazer novos amigos e consolidar sua caminhada cristã."}
             </p>
 
-            <div className="p-5 rounded-sm bg-[#0A0C14] border border-white/10">
+            <div className="p-5 rounded-sm bg-[#0A2424]/80 backdrop-blur-sm border border-gold/15">
               <span className="text-gold text-[10px] font-display font-bold tracking-[0.15em] uppercase block mb-1">
                 A Grande Visão
               </span>
@@ -109,7 +109,7 @@ export default function GeracaoSanta({ config, onNavigate }: GeracaoSantaProps) 
             {/* Quick list highlight cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
               {highlights.map((h, i) => (
-                <div key={i} className="bg-[#0A0C14] p-4 rounded-sm border border-white/10 flex flex-col space-y-2 shadow-md">
+                <div key={i} className="bg-[#0A2424]/70 backdrop-blur-sm p-4 rounded-sm border border-gold/15 flex flex-col space-y-2 shadow-md">
                   <div className="p-2 self-start rounded-sm bg-white/5 border border-white/10 text-gold">
                     {h.icon}
                   </div>
@@ -123,7 +123,7 @@ export default function GeracaoSanta({ config, onNavigate }: GeracaoSantaProps) 
           {/* Column 2: Creative Youth Atmosphere photo */}
           <div className="lg:col-span-6 relative">
             <div className="absolute -inset-1 rounded-sm bg-gold/10 opacity-35 blur-xl pointer-events-none" />
-            <div className="relative rounded-sm overflow-hidden shadow-2xl border border-white/10 bg-[#0A0C14] p-2.5">
+            <div className="relative rounded-sm overflow-hidden shadow-2xl border border-gold/15 bg-[#0A2424]/80 backdrop-blur-sm p-2.5">
               <img
                 src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=800&q=80"
                 alt="Culto Jovem Geração Santa"
@@ -131,7 +131,7 @@ export default function GeracaoSanta({ config, onNavigate }: GeracaoSantaProps) 
                 referrerPolicy="no-referrer"
               />
               {/* Overlay visual status */}
-              <div className="absolute bottom-5 left-5 right-5 p-4 bg-sophisticated-dark/95 border border-white/10 rounded-sm text-left">
+              <div className="absolute bottom-5 left-5 right-5 p-4 bg-sophisticated-dark/95 border border-gold/15 rounded-sm text-left">
                 <span className="text-[10px] font-display text-gold uppercase tracking-[0.2em] block font-bold">
                   Próximo Encontro
                 </span>
@@ -164,7 +164,7 @@ export default function GeracaoSanta({ config, onNavigate }: GeracaoSantaProps) 
               <motion.div
                 key={shirt.id}
                 whileHover={{ y: -4 }}
-                className="relative bg-[#0A0C14] rounded-sm overflow-hidden border border-white/10 hover:border-gold/30 transition-all duration-300 text-left flex flex-col h-full shadow-xl"
+                className="relative bg-[#0A2424]/80 backdrop-blur-sm rounded-sm overflow-hidden border border-gold/15 hover:border-gold/35 transition-all duration-300 text-left flex flex-col h-full shadow-xl"
               >
                 
                 {/* Image panel with underlay blur - no clipping or cropping */}

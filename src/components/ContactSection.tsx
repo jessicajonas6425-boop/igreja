@@ -55,7 +55,7 @@ export default function ContactSection({ config }: ContactSectionProps) {
           {/* Column 1: Contact Detail Card */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6 text-left">
             
-            <div className="bg-[#0A0C14] border border-white/10 rounded-sm p-6 sm:p-8 space-y-6 flex-grow shadow-2xl relative overflow-hidden">
+            <div className="bg-[#0A2424]/80 backdrop-blur-sm border border-gold/10 rounded-sm p-6 sm:p-8 space-y-6 flex-grow shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-2xl pointer-events-none" />
               
               <h3 className="text-xs font-bold font-display text-white uppercase tracking-widest border-b border-white/5 pb-3 flex items-center gap-2">
@@ -124,7 +124,7 @@ export default function ContactSection({ config }: ContactSectionProps) {
           <div className="lg:col-span-7 flex flex-col space-y-6">
             
             {/* Quick WhatsApp helper Form */}
-            <div className="bg-[#0A0C14] border border-white/10 p-6 sm:p-8 rounded-sm text-left shadow-2xl relative overflow-hidden">
+            <div className="bg-[#0A2424]/80 backdrop-blur-sm border border-gold/10 p-6 sm:p-8 rounded-sm text-left shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-2xl pointer-events-none" />
               
               <h3 className="text-sm font-bold font-display text-white uppercase tracking-widest mb-6 pb-2 border-b border-white/5 flex items-center gap-1.5">
@@ -166,14 +166,14 @@ export default function ContactSection({ config }: ContactSectionProps) {
             </div>
 
             {/* Embedded maps mock visual presentation card */}
-            <div className="relative rounded-sm overflow-hidden shadow-2xl h-56 border border-white/10 group">
+            <div className="relative rounded-sm overflow-hidden shadow-2xl h-56 border border-gold/10 group">
               <div 
                 className="absolute inset-0 bg-cover bg-center filter grayscale contrast-125 brightness-75 group-hover:scale-105 transition-transform duration-500 pointer-events-none"
                 style={{ 
                   backgroundImage: `url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=800&q=80')` 
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#05070A] via-[#05070A]/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#051414] via-[#051414]/60 to-transparent" />
               
               <div className="absolute inset-0 p-5 flex flex-col justify-between text-left relative z-10">
                 <span className="text-[9px] font-display font-medium tracking-widest uppercase bg-black/80 border border-gold/20 text-gold px-2.5 py-1 rounded-sm inline-block self-start">

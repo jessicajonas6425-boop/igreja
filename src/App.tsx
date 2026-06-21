@@ -111,7 +111,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-zinc-950 min-h-screen text-zinc-100 selection:bg-amber-400 selection:text-zinc-950 font-sans">
+    <div className="bg-gradient-to-b from-[#0A1F1F] via-[#051414] to-[#0A1F1F] min-h-screen text-[#E0F8F8] selection:bg-[#00E5C8] selection:text-[#051414] font-sans">
       
       <AnimatePresence mode="wait">
         {showIntro ? (

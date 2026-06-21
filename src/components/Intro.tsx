@@ -46,7 +46,7 @@ export default function Intro({ onComplete }: IntroProps) {
   return (
     <motion.div
       id="intro-overlay"
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-zinc-950 overflow-hidden select-none"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-sophisticated-dark overflow-hidden select-none"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -60,8 +60,8 @@ export default function Intro({ onComplete }: IntroProps) {
         }}
       />
 
-      {/* Deep spiritual overlay (gold/dark) */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#05070A] via-[#0A0C14]/60 to-transparent pointer-events-none" />
+      {/* Deep spiritual overlay (teal/dark) */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#051414] via-[#0A2424]/60 to-transparent pointer-events-none" />
 
       {/* Light Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

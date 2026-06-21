@@ -122,7 +122,7 @@ export default function EventsSection() {
             <p className="text-zinc-400 font-display text-[10px] uppercase tracking-[0.2em] font-semibold">Carregando Eventos...</p>
           </div>
         ) : filteredEvents.length === 0 ? (
-          <div className="text-center py-16 bg-[#0A0C14] rounded-sm border border-white/10 max-w-lg mx-auto">
+          <div className="text-center py-16 bg-[#0A2424]/80 backdrop-blur-sm rounded-sm border border-gold/15 max-w-lg mx-auto">
             <Info className="w-8 h-8 text-gold/60 mx-auto mb-3" />
             <p className="text-zinc-300 font-bold font-display text-sm uppercase tracking-wider">Nenhum evento neste filtro</p>
             <p className="text-zinc-505 text-xs mt-1">Selecione outra categoria ou aguarde novidades.</p>
@@ -135,7 +135,7 @@ export default function EventsSection() {
                 layout
                 whileHover={{ y: -4 }}
                 onClick={() => setSelectedEvent(ev)}
-                className="break-inside-avoid relative rounded-sm overflow-hidden bg-[#0A0C14] border border-white/10 hover:border-gold/30 hover:shadow-2xl group cursor-pointer transition-all duration-300 flex flex-col pt-1"
+                className="break-inside-avoid relative rounded-sm overflow-hidden bg-[#0A2424]/80 backdrop-blur-sm border border-gold/15 hover:border-gold/35 hover:shadow-2xl group cursor-pointer transition-all duration-300 flex flex-col pt-1"
               >
                 {/* Photo Header */}
                 <div className="relative overflow-hidden aspect-video">
@@ -202,12 +202,12 @@ export default function EventsSection() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-2xl bg-[#0A0C14] border border-white/10 rounded-sm overflow-hidden shadow-2xl z-10"
+              className="relative w-full max-w-2xl bg-[#0A2424]/95 backdrop-blur-md border border-gold/15 rounded-sm overflow-hidden shadow-2xl z-10"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedEvent(null)}
-                className="absolute top-4 right-4 z-20 p-2.5 text-zinc-450 hover:text-white bg-black/60 rounded-sm border border-white/10 cursor-pointer"
+                className="absolute top-4 right-4 z-20 p-2.5 text-zinc-450 hover:text-white bg-black/60 rounded-sm border border-gold/10 cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -220,7 +220,7 @@ export default function EventsSection() {
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#05070A] via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#051414] via-transparent to-transparent pointer-events-none" />
                 <span className="absolute bottom-4 left-4 text-[9px] font-display font-bold uppercase tracking-widest bg-gold text-black px-3 py-1.5 rounded-sm shadow-lg">
                   {selectedEvent.category}
                 </span>

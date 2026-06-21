@@ -193,11 +193,11 @@ export default function HomeSection({ onNavigate, onOpenAuth, config }: HomeSect
               <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/5">
                 <div className="flex items-center gap-2">
                   <BookOpen className="w-3.5 h-3.5 text-gold" />
-                  <span className="text-[10px] font-display font-bold uppercase tracking-widest text-[#D4AF37]">
+                  <span className="text-[10px] font-display font-bold uppercase tracking-widest text-[#00E5C8]">
                     Versículo do Dia
                   </span>
                 </div>
-                <span className="text-[9px] font-display font-medium bg-[#D4AF37]/10 text-gold px-2 py-0.5 rounded-sm">
+                <span className="text-[9px] font-display font-medium bg-gold/10 text-gold px-2 py-0.5 rounded-sm">
                   Palavra Viva
                 </span>
               </div>
@@ -221,7 +221,7 @@ export default function HomeSection({ onNavigate, onOpenAuth, config }: HomeSect
             </motion.div>
 
             {/* Rotating Hero Carousel (Events & Ministry Shirts/Camisas) */}
-            <div className="relative overflow-hidden group border border-white/10 bg-[#0A0C14] shadow-2xl rounded-sm">
+            <div className="relative overflow-hidden group border border-gold/15 bg-[#0A2424]/80 backdrop-blur-sm shadow-2xl rounded-sm">
               
               <div className="relative h-80 sm:h-96 md:h-[420px] overflow-hidden">
                 <AnimatePresence mode="popLayout">
@@ -231,7 +231,7 @@ export default function HomeSection({ onNavigate, onOpenAuth, config }: HomeSect
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.97 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute inset-0 flex items-center justify-center bg-[#05070A]/95"
+                    className="absolute inset-0 flex items-center justify-center bg-[#051414]/95"
                   >
                     {/* Soft blurred background matching the photo */}
                     <div 

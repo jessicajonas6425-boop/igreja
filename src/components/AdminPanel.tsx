@@ -298,7 +298,7 @@ export default function AdminPanel({ config }: AdminPanelProps) {
               </p>
             </div>
 
-            <div className="bg-[#0A0C14] border border-white/10 rounded-sm p-6 sm:p-10 shadow-2xl relative">
+            <div className="bg-[#0A2424]/80 backdrop-blur-sm border border-gold/15 rounded-sm p-6 sm:p-10 shadow-2xl relative">
               <ShieldAlert className="w-10 h-10 text-gold mx-auto mb-4" />
               
               {loginError && (
@@ -373,8 +373,8 @@ export default function AdminPanel({ config }: AdminPanelProps) {
                   onClick={() => setActiveTab("config")}
                   className={`px-3 py-2.5 text-[9px] font-bold uppercase tracking-wider rounded-sm border transition-all flex items-center gap-1.5 cursor-pointer font-display ${
                     activeTab === "config" 
-                      ? "bg-gold/10 text-gold border-gold/40" 
-                      : "bg-[#0A0C14] text-zinc-400 border-white/10 hover:text-white"
+                      ? "bg-gold/15 text-gold border-gold/40" 
+                      : "bg-[#0A2424]/80 text-zinc-400 border-white/10 hover:text-white hover:border-gold/30"
                   }`}
                 >
                   <Settings className="w-3.5 h-3.5" />
@@ -385,8 +385,8 @@ export default function AdminPanel({ config }: AdminPanelProps) {
                   onClick={() => setActiveTab("events")}
                   className={`px-3 py-2.5 text-[9px] font-bold uppercase tracking-wider rounded-sm border transition-all flex items-center gap-1.5 cursor-pointer font-display ${
                     activeTab === "events" 
-                      ? "bg-gold/10 text-gold border-gold/40" 
-                      : "bg-[#0A0C14] text-zinc-400 border-white/10 hover:text-white"
+                      ? "bg-gold/15 text-gold border-gold/40" 
+                      : "bg-[#0A2424]/80 text-zinc-400 border-white/10 hover:text-white hover:border-gold/30"
                   }`}
                 >
                   <Calendar className="w-3.5 h-3.5" />
@@ -397,8 +397,8 @@ export default function AdminPanel({ config }: AdminPanelProps) {
                   onClick={() => setActiveTab("verses")}
                   className={`px-3 py-2.5 text-[9px] font-bold uppercase tracking-wider rounded-sm border transition-all flex items-center gap-1.5 cursor-pointer font-display ${
                     activeTab === "verses" 
-                      ? "bg-gold/10 text-gold border-gold/40" 
-                      : "bg-[#0A0C14] text-zinc-400 border-white/10 hover:text-white"
+                      ? "bg-gold/15 text-gold border-gold/40" 
+                      : "bg-[#0A2424]/80 text-zinc-400 border-white/10 hover:text-white hover:border-gold/30"
                   }`}
                 >
                   <BookOpen className="w-3.5 h-3.5" />
@@ -409,8 +409,8 @@ export default function AdminPanel({ config }: AdminPanelProps) {
                   onClick={() => setActiveTab("members")}
                   className={`px-3 py-2.5 text-[9px] font-bold uppercase tracking-wider rounded-sm border transition-all flex items-center gap-1.5 cursor-pointer font-display ${
                     activeTab === "members" 
-                      ? "bg-gold/10 text-gold border-gold/40" 
-                      : "bg-[#0A0C14] text-zinc-400 border-white/10 hover:text-white"
+                      ? "bg-gold/15 text-gold border-gold/40" 
+                      : "bg-[#0A2424]/80 text-zinc-400 border-white/10 hover:text-white hover:border-gold/30"
                   }`}
                 >
                   <Users className="w-3.5 h-3.5" />
@@ -420,7 +420,7 @@ export default function AdminPanel({ config }: AdminPanelProps) {
             </div>
 
             {/* TAB PANELS RENDERS */}
-            <div className="bg-[#0A0C14] border border-white/10 rounded-sm p-6 sm:p-8 shadow-2xl">
+            <div className="bg-[#0A2424]/80 backdrop-blur-sm border border-gold/15 rounded-sm p-6 sm:p-8 shadow-2xl">
               
               {/* TAB 1: EDIT CONFIGS */}
               {activeTab === "config" && (
@@ -845,7 +845,7 @@ export default function AdminPanel({ config }: AdminPanelProps) {
                   <div className="overflow-x-auto">
                     <table className="w-full text-xs text-zinc-350 text-left border-collapse">
                       <thead>
-                        <tr className="border-b border-white/10 bg-[#0A0C14]/60 font-serif lowercase italic text-gold text-xs font-normal text-[11px]">
+                        <tr className="border-b border-white/10 bg-[#0A2424]/60 font-serif lowercase italic text-gold text-xs font-normal text-[11px]">
                           <th className="p-3 text-left">Nome</th>
                           <th className="p-3 text-left">Idade</th>
                           <th className="p-3 text-left">Nascimento</th>
