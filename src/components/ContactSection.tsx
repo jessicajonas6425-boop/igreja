@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { motion } from "motion/react";
-import { MapPin, Phone, Mail, Clock, Send, MessageSquare } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { MapPin, Phone, Mail, Clock, Send, MessageSquare, Camera, ArrowRight, Check } from "lucide-react";
 import { ChurchConfig } from "../types";
 
 interface ContactSectionProps {
@@ -10,6 +10,25 @@ interface ContactSectionProps {
 export default function ContactSection({ config }: ContactSectionProps) {
   const [userName, setUserName] = useState("");
   const [userMsg, setUserMsg] = useState("");
+  const [activePhotoIdx, setActivePhotoIdx] = useState(0);
+
+  const facadePhotos = [
+    {
+      url: "https://i.postimg.cc/X714tM1R/725750474-1465380221938788-6155376042546484276-n.jpg",
+      title: "Fachada Principal",
+      desc: "Nossa entrada acolhedora na Avenida Kennedy."
+    },
+    {
+      url: "https://i.postimg.cc/sDHsbF0y/727772934-1305632924889921-4522288572666752120-n.jpg",
+      title: "Vista de Frente",
+      desc: "Localização fácil para quando você estiver chegando no templo."
+    },
+    {
+      url: "https://i.postimg.cc/MK3qgkrw/728809388-2078139083127471-7815375003732136179-n.jpg",
+      title: "Letreiro da Church",
+      desc: "Espaço dedicado para adoração e encontros comunitários."
+    }
+  ];
 
   const handleWhatsappSend = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,7 +46,7 @@ export default function ContactSection({ config }: ContactSectionProps) {
   };
 
   return (
-    <section id="contato" className="py-24 bg-sophisticated-dark relative overflow-hidden border-t border-white/5 text-left">
+    <section id="contato" className="py-24 bg-sophisticated-dark relative overflow-hidden text-left">
       
       {/* Background visual graphics */}
       <div className="absolute top-1/2 left-0 w-80 h-80 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
@@ -53,7 +72,7 @@ export default function ContactSection({ config }: ContactSectionProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
           {/* Column 1: Contact Detail Card */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-6 text-left">
+          <div className="lg:col-span-5 flex flex-col space-y-6 text-left">
             
             <div className="bg-[#0A2424]/80 backdrop-blur-sm border border-gold/10 rounded-sm p-6 sm:p-8 space-y-6 flex-grow shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-2xl pointer-events-none" />
@@ -115,6 +134,77 @@ export default function ContactSection({ config }: ContactSectionProps) {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Facade Real Photos Section */}
+            <div className="bg-[#0A2424]/80 backdrop-blur-sm border border-gold/15 rounded-sm p-5 space-y-4 shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gold/5 rounded-full blur-2xl pointer-events-none" />
+              
+              <div className="flex items-center justify-between border-b border-white/5 pb-2.5">
+                <h4 className="text-[10px] font-bold font-display text-white uppercase tracking-widest flex items-center gap-2">
+                  <Camera className="w-3.5 h-3.5 text-gold" /> Reconheça Nosso Templo
+                </h4>
+                <span className="text-[9px] font-mono text-gold bg-gold/10 px-2 py-0.5 rounded-sm uppercase">
+                  Fachada Real
+                </span>
+              </div>
+
+              <div className="relative aspect-video rounded-sm overflow-hidden border border-white/10 bg-black/30 group">
+                {/* Active image visualization with transition of selection */}
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={activePhotoIdx}
+                    src={facadePhotos[activePhotoIdx].url}
+                    alt={facadePhotos[activePhotoIdx].title}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.3 }}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                  />
+                </AnimatePresence>
+                
+                {/* Visual Dark Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                
+                {/* Floating caption details */}
+                <div className="absolute bottom-3 left-3 right-3 text-left">
+                  <span className="text-[10px] font-bold font-display text-white block uppercase tracking-wider">
+                    {facadePhotos[activePhotoIdx].title}
+                  </span>
+                  <span className="text-[9px] text-zinc-300 font-serif italic block mt-0.5 leading-tight">
+                    {facadePhotos[activePhotoIdx].desc}
+                  </span>
+                </div>
+              </div>
+
+              {/* Grid of choices selection */}
+              <div className="grid grid-cols-3 gap-2">
+                {facadePhotos.map((photo, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActivePhotoIdx(i)}
+                    className={`relative aspect-video rounded-sm overflow-hidden border transition-all cursor-pointer ${
+                      activePhotoIdx === i 
+                        ? "border-gold ring-1 ring-gold/40 scale-102"
+                        : "border-white/10 hover:border-white/30 hover:scale-102"
+                    }`}
+                  >
+                    <img 
+                      src={photo.url} 
+                      alt="" 
+                      referrerPolicy="no-referrer"
+                      className={`w-full h-full object-cover transition duration-300 ${activePhotoIdx === i ? "brightness-110" : "brightness-50"}`}
+                    />
+                    {activePhotoIdx === i && (
+                      <div className="absolute top-1 right-1 p-0.5 bg-gold rounded-full">
+                        <Check className="w-2 h-2 text-black stroke-[3]" />
+                      </div>
+                    )}
+                  </button>
+                ))}
               </div>
             </div>
 
